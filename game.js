@@ -1,5 +1,6 @@
-kaboom({stretch: true, scale:2, width: 380, height:844})
+import kaboom from "kaboom"
 
+kaboom({stretch: true, scale:1, width: 380, height:800})
 
 
 loadSprite("bird", "sprites/bluebird-downflap.png")
@@ -47,7 +48,7 @@ scene("game", () => {
     ])
 
 
-    const TUBE_OPEN = 240
+    let TUBE_OPEN = 240
     const TUBE_MIN = 60
     const JUMP_FORCE = 800
     let SPEED = 320
@@ -254,8 +255,9 @@ scene("game", () => {
     pauseMenu.paused = true
 
     onUpdate("bg", (bg) => {
-        if (score > 5 ) {
+        if (score > 1 ) {
             SPEED = 1000
+            TUBE_OPEN =  pos(rand(1, width(100)), rand(1, height(10) ))
             destroy(bg)
             add([
                 sprite("bg2", {width: width(), height: height()}),
@@ -266,7 +268,7 @@ scene("game", () => {
         }
     })
     onUpdate("bg2", (bg2) => {
-        if (score > 10) {
+        if (score > 10 ) {
             SPEED = 200
             destroy(bg2)
             add([
