@@ -28,7 +28,7 @@ scene("message", ()=> {
     add([
         sprite("message"),
         pos(width() / 2, height() / 2 - 108),
-        scale(3),
+        scale(2),
         anchor("center"),
     ]);
 
@@ -48,7 +48,7 @@ scene("game", () => {
     ])
 
 
-    let TUBE_OPEN = 240
+    const TUBE_OPEN = 240
     const TUBE_MIN = 60
     const JUMP_FORCE = 800
     let SPEED = 320
@@ -255,9 +255,8 @@ scene("game", () => {
     pauseMenu.paused = true
 
     onUpdate("bg", (bg) => {
-        if (score > 1 ) {
-            SPEED = 1000
-            TUBE_OPEN =  pos(rand(1, width(100)), rand(1, height(10) ))
+        if (score > 20 ) {
+            SPEED = 400
             destroy(bg)
             add([
                 sprite("bg2", {width: width(), height: height()}),
@@ -268,7 +267,7 @@ scene("game", () => {
         }
     })
     onUpdate("bg2", (bg2) => {
-        if (score > 10 ) {
+        if (score > 30 ) {
             SPEED = 200
             destroy(bg2)
             add([
@@ -291,7 +290,7 @@ scene("lose", (score) => {
     add([
         sprite("gameover"),
         pos(width() / 2, height() / 2 - 300),
-        scale(3),
+        scale(2),
         anchor("center"),
     ]);
     add([
@@ -302,7 +301,7 @@ scene("lose", (score) => {
     ])
     add([
         sprite("coin"),
-        pos(width() / 1.90, height() / 2 - -5),
+        pos(width() / 1.60, height() / 2 - -5),
         scale(3),
         anchor("center"),
     ])
